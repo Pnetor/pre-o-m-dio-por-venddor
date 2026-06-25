@@ -25,7 +25,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--surface);color:va
 
 /* Header */
 header{background:linear-gradient(135deg,var(--primary-d),var(--primary));color:#fff;
-  padding:22px 0 64px;position:relative;overflow:hidden}
+  padding:22px 0 22px;position:relative;overflow:hidden}
 header::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;
   background:radial-gradient(circle,rgba(224,146,43,.22),transparent 70%);pointer-events:none}
 .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -35,8 +35,8 @@ header::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;hei
 .sub{color:#BBD2E6;font-size:12.5px;margin-top:5px}
 
 /* KPI strip */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-40px;position:relative;z-index:3}
-.kpi{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;position:relative;z-index:1}
+.kpi{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink)}
 .kpi .lab{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .kpi .val{font-family:'Archivo',sans-serif;font-weight:700;font-size:23px;margin-top:3px;letter-spacing:-.5px}
 .kpi .val small{font-size:13px;font-weight:600;color:var(--muted)}
@@ -117,11 +117,11 @@ tbody tr:hover{background:#FAFCFE}
       <span class="tag">GTF · Filial 01052</span>
     </div>
     <div class="sub" id="sub"></div>
+    <div class="kpis" id="kpis"></div>
   </div>
 </header>
 
 <div class="wrap">
-  <div class="kpis" id="kpis"></div>
 
   <div class="tabs">
     <button class="tab on" data-t="vend">Por vendedor</button>
