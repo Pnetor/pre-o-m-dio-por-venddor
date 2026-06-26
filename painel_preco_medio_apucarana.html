@@ -206,6 +206,7 @@ tbody tr:hover{background:#FAFCFE}
       <button class="gbtn" data-g="Leonardo">Leonardo</button>
     </div>
     <div class="controls">
+      <input type="text" id="qProd" placeholder="Filtrar produto…" style="min-width:220px">
       <select id="selProd"></select>
     </div>
     <div class="cmp" id="cmp"></div>
@@ -280,7 +281,7 @@ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
 });
 
 /* ---------- POR VENDEDOR ---------- */
-const vendNames = Object.keys(DB.vendors).sort((a,b)=>DB.vendors[b].fat-DB.vendors[a].fat);
+const vendNames = Object.keys(DB.vendors).sort((a,b)=>a.localeCompare(b,'pt-BR'));
 const selV = document.getElementById('selVend');
 
 function rebuildSelVend(){
@@ -382,9 +383,17 @@ document.getElementById('qVend').oninput=renderVendor;
 renderVendor();
 
 /* ---------- COMPARAR PRODUTO ---------- */
-const prodNames = Object.keys(DB.products).sort((a,b)=>DB.products[b].fat-DB.products[a].fat);
+const prodNames = Object.keys(DB.products).sort((a,b)=>a.localeCompare(b,'pt-BR'));
 const selP=document.getElementById('selProd');
-selP.innerHTML = prodNames.map(p=>`<option value="${p}">${p}</option>`).join('');
+
+function rebuildSelProd(){
+  const q=document.getElementById('qProd').value.trim().toLowerCase();
+  const filtered=prodNames.filter(p=>!q||p.toLowerCase().includes(q));
+  selP.innerHTML=filtered.map(p=>`<option value="${p}">${p}</option>`).join('');
+  renderProd();
+}
+document.getElementById('qProd').oninput=rebuildSelProd;
+rebuildSelProd();
 
 function renderProd(){
   const p=selP.value, d=DB.products[p];
