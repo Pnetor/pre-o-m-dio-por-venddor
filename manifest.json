@@ -1,0 +1,18 @@
+{
+  "name": "Preço Médio · Apucarana",
+  "short_name": "Preço Médio",
+  "description": "Painel de preço médio, faturamento e desempenho de vendas — GTF Filial 01052",
+  "start_url": "./painel_preco_medio_apucarana.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0D2B27",
+  "theme_color": "#1B4B45",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
